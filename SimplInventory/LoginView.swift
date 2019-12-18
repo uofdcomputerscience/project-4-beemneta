@@ -48,7 +48,7 @@ class LoginView: UIViewController {
             } else {
                 LoginView.userID = result!.user.uid
                 LoginView.accountUserName = self.userNameTxtFld.text!
-                LoginView.db.collection(LoginView.userID).addDocument(data: ["AccountUserName" : name, "UserID":LoginView.userID])
+                LoginView.db.collection(LoginView.userID).addDocument(data: ["AccountUserName" : name, "UserID":LoginView.userID!])
                 self.toMainFeed()
                 print("account created")
             }
@@ -70,8 +70,18 @@ class LoginView: UIViewController {
             if error != nil {
                 self.userNameTxtFld.text = "\(error!.localizedDescription )"
             } else {
+                LoginView.userID = result!.user.uid
+                LoginView.db.collection(LoginView.userID).whereField("UserID", isEqualTo: LoginView.userID!).getDocuments(completion: { (snapshot, error) in
+                    if let error = error {
+                        print (error.localizedDescription)
+                    } else {
+                           for document in snapshot!.documents {
+                                         let dar = document.data()
+                            LoginView.accountUserName = dar["AccountUserName"] as! String
+                                        }
+                    }
+                })
                 self.toMainFeed()
-                LoginView.userID = result!.user.uid                
             }
         }
         

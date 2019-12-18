@@ -14,18 +14,15 @@ class mainFeed: UIViewController{
     var computerArray = [Computer]()
     
     @IBOutlet weak var accountUser: UILabel!
-    @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var signOut: UIButton!
     @IBOutlet weak var newButton: UIButton!    
     @IBOutlet weak var computerTable: UITableView!
 
-    @IBAction func reloadButton(_ sender: UIButton) {
-      //  computerArray.removeAll()
-        //loadData()
-    }
+   
     
     @IBAction func signOut(_ sender: UIButton) {
         toLoginView()
+        LoginView.accountUserName = ""
     }
     
     @IBAction func newButton(_ sender: UIButton) {
@@ -35,14 +32,20 @@ class mainFeed: UIViewController{
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         computerTable.dataSource = self
+        computerTable.delegate = self
+        
         DispatchQueue.main.async {
+            self.accountUser.text = LoginView.accountUserName!
             self.loadData()
         }
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        accountUser.text = LoginView.accountUserName!
+    }
     
     func toLoginView() {
         let vc = storyboard?.instantiateViewController(identifier: "LoginView") as? LoginView
@@ -55,10 +58,8 @@ class mainFeed: UIViewController{
         LoginView.db.collection(identi).whereField("isComputer", isEqualTo: true).getDocuments { (snapshot, error) in
             if let error = error {
                 print (error.localizedDescription)
-            } else {
-                print (snapshot!.documents)
+            } else {                
                    for document in snapshot!.documents {                    
-                    print ("even inside is working")
                     let dar = document.data()
                        let na1 = dar["Department"] as? String ?? ""
                        let na2 = dar["UserName"] as? String ?? ""
@@ -105,5 +106,18 @@ extension mainFeed: UITableViewDataSource {
 }
 
 extension mainFeed: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let comp = computerArray[indexPath.row]
+        let vc = storyboard?.instantiateViewController(identifier: "computerDetailView") as! computerDetailView
+        vc.bnd = comp.brandName
+        vc.dp = comp.deptName
+        vc.mod = comp.deviceModel
+        vc.ipA = comp.ipAddress
+        vc.netBio = comp.netBiosName
+        vc.sn = comp.serialNumber
+        vc.unam = comp.user
+        view?.window?.rootViewController = vc
+        view?.window?.makeKeyAndVisible()
+        
+    }
 }

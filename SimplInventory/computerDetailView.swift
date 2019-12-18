@@ -19,4 +19,32 @@ class computerDetailView: UIViewController {
     @IBOutlet weak var netBiosName: UILabel!
     @IBOutlet weak var department: UILabel!
     
+    var mod: String!
+    var dp: String!
+    var netBio: String!
+    var unam: String!
+    var sn: String!
+    var bnd: String!
+    var ipA: String!
+    
+    override func viewDidLoad() {
+       userName.text = "\(unam!)"
+       ipAddress.text = "\(ipA!)"
+       netBiosName.text = "\(netBio!)"
+       model.text = "\(mod!)"
+       serialNumber.text = "\(sn!)"
+       brand.text = "\(bnd!)"
+       department.text = "\(dp!)"
+    }
+    
+    @IBAction func goBack(_ sender: UIButton) {
+        toMainFeed()
+    }
+    
+    func toMainFeed() {
+        let vc = storyboard?.instantiateViewController(identifier: "mainFeed") as? mainFeed
+        view.window?.rootViewController = vc
+        view.window?.makeKeyAndVisible()
+    }
+    
 }

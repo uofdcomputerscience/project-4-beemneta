@@ -114,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="x8t-9X-TdC"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BlQ-gB-1bG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANx-0b-Sgg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -129,21 +129,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8X-a0-BaQ">
-                                <rect key="frame" x="198" y="112" width="18" height="22"/>
-                                <state key="normal" image="arrow.clockwise" catalog="system"/>
-                                <connections>
-                                    <action selector="reloadButton:" destination="VsZ-6I-PyV" eventType="touchUpInside" id="6Gt-7e-61R"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgO-C2-Ti9">
-                                <rect key="frame" x="43" y="112" width="81" height="21"/>
+                                <rect key="frame" x="43" y="156" width="81" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="182" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fv1-iq-si3">
-                                <rect key="frame" x="20" y="183" width="374" height="587"/>
+                                <rect key="frame" x="20" y="227" width="374" height="543"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="computerCell" rowHeight="182" id="W2Z-K2-kNO" customClass="computerCell" customModule="SimplInventory" customModuleProvider="target">
@@ -205,7 +198,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gw9-li-dZY">
-                                <rect key="frame" x="334" y="107" width="60" height="30"/>
+                                <rect key="frame" x="334" y="151" width="60" height="30"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOut:" destination="VsZ-6I-PyV" eventType="touchUpInside" id="9vk-H5-0DT"/>
@@ -224,28 +217,27 @@
                         <constraints>
                             <constraint firstItem="Gw9-li-dZY" firstAttribute="top" secondItem="h18-aC-PPs" secondAttribute="top" constant="63" id="18Y-C6-b7g"/>
                             <constraint firstItem="fDl-2v-pvv" firstAttribute="leading" secondItem="h18-aC-PPs" secondAttribute="leading" constant="199" id="5p1-QX-CeK"/>
-                            <constraint firstItem="Gw9-li-dZY" firstAttribute="leading" secondItem="d8X-a0-BaQ" secondAttribute="trailing" constant="118" id="9AA-bt-8kh"/>
-                            <constraint firstItem="d8X-a0-BaQ" firstAttribute="leading" secondItem="mgO-C2-Ti9" secondAttribute="trailing" constant="74" id="9f3-8F-Ajk"/>
                             <constraint firstItem="mgO-C2-Ti9" firstAttribute="leading" secondItem="h18-aC-PPs" secondAttribute="leading" constant="43" id="FPf-Qf-yvO"/>
                             <constraint firstItem="mgO-C2-Ti9" firstAttribute="top" secondItem="h18-aC-PPs" secondAttribute="top" constant="68" id="Kgu-RP-GiG"/>
                             <constraint firstItem="Fv1-iq-si3" firstAttribute="trailing" secondItem="Gw9-li-dZY" secondAttribute="trailing" id="MtE-ot-aue"/>
                             <constraint firstItem="h18-aC-PPs" firstAttribute="bottom" secondItem="fDl-2v-pvv" secondAttribute="bottom" constant="40" id="RnK-s9-ACQ"/>
-                            <constraint firstItem="Fv1-iq-si3" firstAttribute="centerX" secondItem="d8X-a0-BaQ" secondAttribute="centerX" id="Tz2-ZI-K2g"/>
                             <constraint firstItem="Fv1-iq-si3" firstAttribute="top" secondItem="Gw9-li-dZY" secondAttribute="bottom" constant="46" id="cal-R7-A7h"/>
+                            <constraint firstItem="Fv1-iq-si3" firstAttribute="leading" secondItem="h18-aC-PPs" secondAttribute="leading" constant="20" id="crf-sB-Cr9"/>
+                            <constraint firstItem="Fv1-iq-si3" firstAttribute="top" secondItem="h18-aC-PPs" secondAttribute="top" constant="139" id="fxw-IW-6Ix"/>
                             <constraint firstItem="h18-aC-PPs" firstAttribute="trailing" secondItem="fDl-2v-pvv" secondAttribute="trailing" constant="197" id="gDf-Ds-6LD"/>
-                            <constraint firstItem="Fv1-iq-si3" firstAttribute="top" secondItem="d8X-a0-BaQ" secondAttribute="bottom" constant="49" id="jhY-NA-jli"/>
-                            <constraint firstItem="d8X-a0-BaQ" firstAttribute="top" secondItem="h18-aC-PPs" secondAttribute="top" constant="68" id="jyC-dw-LRv"/>
+                            <constraint firstItem="Gw9-li-dZY" firstAttribute="leading" secondItem="mgO-C2-Ti9" secondAttribute="trailing" constant="210" id="ibt-Iy-1Ut"/>
                             <constraint firstItem="fDl-2v-pvv" firstAttribute="top" secondItem="Fv1-iq-si3" secondAttribute="bottom" constant="30" id="kHE-ew-kRZ"/>
+                            <constraint firstItem="h18-aC-PPs" firstAttribute="trailing" secondItem="Fv1-iq-si3" secondAttribute="trailing" constant="20" id="oKz-t7-eg8"/>
                             <constraint firstItem="Fv1-iq-si3" firstAttribute="top" secondItem="mgO-C2-Ti9" secondAttribute="bottom" constant="50" id="qXy-rB-HIt"/>
                             <constraint firstItem="h18-aC-PPs" firstAttribute="trailing" secondItem="Gw9-li-dZY" secondAttribute="trailing" constant="20" id="vOb-Rj-k2D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h18-aC-PPs"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Buf-0y-NEx"/>
                     <connections>
                         <outlet property="accountUser" destination="mgO-C2-Ti9" id="xXL-Vg-2wR"/>
                         <outlet property="computerTable" destination="Fv1-iq-si3" id="OlO-w8-009"/>
                         <outlet property="newButton" destination="fDl-2v-pvv" id="AC1-77-w1v"/>
-                        <outlet property="reloadButton" destination="d8X-a0-BaQ" id="v4Q-y8-gvQ"/>
                         <outlet property="signOut" destination="Gw9-li-dZY" id="foo-Rd-106"/>
                     </connections>
                 </viewController>
@@ -303,9 +295,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Computer Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFi-AT-LmT">
+                                <rect key="frame" x="91" y="136" width="232" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaW-cA-sEf">
+                                <rect key="frame" x="13" y="114" width="58" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go Back"/>
+                                <connections>
+                                    <action selector="goBack:" destination="bjG-sK-exA" eventType="touchUpInside" id="Lkd-yO-pkw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="mFi-AT-LmT" firstAttribute="leading" secondItem="35b-yC-sSN" secondAttribute="leading" constant="91" id="6DM-Os-9F0"/>
+                            <constraint firstItem="Wgc-9Q-1Z6" firstAttribute="top" secondItem="mFi-AT-LmT" secondAttribute="bottom" constant="57" id="7kL-b1-hxK"/>
+                            <constraint firstItem="mFi-AT-LmT" firstAttribute="top" secondItem="35b-yC-sSN" secondAttribute="top" constant="92" id="AZA-op-5g2"/>
                             <constraint firstItem="Is3-b2-C3l" firstAttribute="top" secondItem="Wgc-9Q-1Z6" secondAttribute="bottom" constant="16" id="EGi-ch-JOW"/>
                             <constraint firstItem="UKW-BU-OAr" firstAttribute="top" secondItem="dgD-sJ-nML" secondAttribute="bottom" constant="27" id="EuK-d6-oZ9"/>
                             <constraint firstItem="35b-yC-sSN" firstAttribute="trailing" secondItem="UKW-BU-OAr" secondAttribute="trailing" constant="26" id="Fv6-Rn-bM9"/>
@@ -321,6 +330,7 @@
                             <constraint firstItem="0oG-bH-uYm" firstAttribute="leading" secondItem="dgD-sJ-nML" secondAttribute="trailing" constant="26" id="WJd-AN-mC3"/>
                             <constraint firstItem="35b-yC-sSN" firstAttribute="trailing" secondItem="Wgc-9Q-1Z6" secondAttribute="trailing" constant="26" id="ang-xm-3Ei"/>
                             <constraint firstItem="35b-yC-sSN" firstAttribute="trailing" secondItem="Is3-b2-C3l" secondAttribute="trailing" constant="26" id="esy-LZ-ORi"/>
+                            <constraint firstItem="35b-yC-sSN" firstAttribute="trailing" secondItem="mFi-AT-LmT" secondAttribute="trailing" constant="91" id="fH8-2I-peY"/>
                             <constraint firstItem="35b-yC-sSN" firstAttribute="trailing" secondItem="ndt-qd-QDl" secondAttribute="trailing" constant="26" id="hFX-LW-csT"/>
                             <constraint firstItem="35b-yC-sSN" firstAttribute="bottom" secondItem="0oG-bH-uYm" secondAttribute="bottom" constant="501" id="hWr-Ft-94W"/>
                             <constraint firstItem="35b-yC-sSN" firstAttribute="trailing" secondItem="0oG-bH-uYm" secondAttribute="trailing" constant="20" id="jJ7-GB-AcP"/>
@@ -458,10 +468,25 @@
             </objects>
             <point key="canvasLocation" x="2049.275362318841" y="139.95535714285714"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b04-vN-KuO">
+            <objects>
+                <navigationController id="8A0-el-a5d" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hQ6-8Q-SoW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VsZ-6I-PyV" kind="relationship" relationship="rootViewController" id="MmC-84-6aC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U7p-Wv-gew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2710" y="140"/>
+        </scene>
     </scenes>
     <resources>
         <image name="UD_Campus.jpg" width="480" height="320"/>
-        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
         <image name="plus" catalog="system" width="64" height="58"/>
     </resources>
 </document>
