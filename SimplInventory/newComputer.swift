@@ -34,7 +34,6 @@ class newComputer: UIViewController {
         doneButton.layer.cornerRadius = 3
     }
     
-    
     @IBAction func goBack(_ sender: UIButton) {
         toMainFeed()
     }
@@ -47,13 +46,12 @@ class newComputer: UIViewController {
     @IBOutlet weak var resetButton: UIButton!
     @IBAction func doneButton(_ sender: UIButton) {
         guard let usr = userName.text, !usr.isEmpty else { return }
-         guard let net = netBiosName.text, !net.isEmpty else { return }
-         guard let srn = serialNumber.text, !srn.isEmpty else { return }
-         guard let ipa = ipAddress.text, !ipa.isEmpty else { return }
-         guard let brand = brand.text, !brand.isEmpty else { return }
-         guard let model = model.text, !model.isEmpty else { return }
+        guard let net = netBiosName.text, !net.isEmpty else { return }
+        guard let srn = serialNumber.text, !srn.isEmpty else { return }
+        guard let ipa = ipAddress.text, !ipa.isEmpty else { return }
+        guard let brand = brand.text, !brand.isEmpty else { return }
+        guard let model = model.text, !model.isEmpty else { return }
         guard let dept = department.text, !dept.isEmpty else { return }
-        
       
         LoginView.db.collection(LoginView.userID).addDocument(data: ["UserName":usr,"NetBiosName":net,"Department":dept,"IPAddress":ipa,"SerialNumber":srn,"Brand":brand,"Model":model,"isComputer":true,"documentID":LoginView.db.collection(LoginView.userID).document().documentID]) { (error) in
             if error != nil {

@@ -35,7 +35,6 @@ class mainFeed: UIViewController{
         super.viewDidLoad()
         computerTable.dataSource = self
         computerTable.delegate = self
-        
         DispatchQueue.main.async {
             self.loadData()
         }
@@ -116,7 +115,6 @@ extension mainFeed: UITableViewDelegate {
         vc.unam = comp.user
         vc.docID = comp.docuID
         view?.window?.rootViewController = vc
-        view?.window?.makeKeyAndVisible()
-        
+        view?.window?.makeKeyAndVisible()        
     }
 }

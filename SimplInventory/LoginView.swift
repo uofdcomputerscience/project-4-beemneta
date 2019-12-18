@@ -21,21 +21,17 @@ class LoginView: UIViewController {
     @IBOutlet weak var emailTxtFld: UITextField!
     @IBOutlet weak var passwordTxtFld: UITextField!
     @IBOutlet weak var loginButton: UIButton!    
-    @IBOutlet weak var signupButton: UIButton!
-    
+    @IBOutlet weak var signupButton: UIButton!    
     
     override func viewDidLoad() {
         loginButton.layer.cornerRadius = 4
         signupButton.layer.cornerRadius = 4
     }
     
-    
-    
     @IBAction func loginButton(_ sender: UIButton) {
         guard let paswrd = passwordTxtFld.text, !paswrd.isEmpty else { return }
         guard let email = emailTxtFld.text, !email.isEmpty else { return }        
         loginUser(user: email, pass: paswrd)
-        
     }
     
     @IBAction func signupButton(_ sender: UIButton) {
@@ -48,7 +44,6 @@ class LoginView: UIViewController {
     func createUser (user:String,pass:String, name:String ) {
         guard !user.isEmpty else { return }
         guard !pass.isEmpty else { return }
-        
         Auth.auth().createUser(withEmail: user, password: pass) { (result, error) in
             if error != nil {
                 self.userNameTxtFld.text = "Please enter a valid email or password"
@@ -60,9 +55,7 @@ class LoginView: UIViewController {
                 self.toMainFeed()
                 print("account created")
             }
-            
         }
-        
     }
     
      func toMainFeed() {
@@ -86,20 +79,12 @@ class LoginView: UIViewController {
                            for document in snapshot!.documents {
                                          let dar = document.data()
                             LoginView.accountUserName = (dar["AccountUserName"] as! String)
-                            
                         }
                         self.toMainFeed()
                     }
                 })
-                
             }
         }
-        
     }
-    
-    
-    
-    
-    
-    
+
 }

@@ -8,8 +8,7 @@
 
 import UIKit
 
-class computerDetailView: UIViewController {
-    
+class computerDetailView: UIViewController {    
     
     @IBOutlet weak var model: UILabel!
     @IBOutlet weak var ipAddress: UILabel!    
@@ -120,10 +119,6 @@ class computerDetailView: UIViewController {
         }else {
             return replacing
         }
-        
-       
     }
-    
-    
     
 }
