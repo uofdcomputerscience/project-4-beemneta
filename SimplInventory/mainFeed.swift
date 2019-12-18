@@ -20,8 +20,8 @@ class mainFeed: UIViewController{
     @IBOutlet weak var computerTable: UITableView!
 
     @IBAction func reloadButton(_ sender: UIButton) {
-        computerArray.removeAll()
-        loadData()
+      //  computerArray.removeAll()
+        //loadData()
     }
     
     @IBAction func signOut(_ sender: UIButton) {
@@ -37,7 +37,10 @@ class mainFeed: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         computerTable.dataSource = self
-        loadData()
+        DispatchQueue.main.async {
+            self.loadData()
+        }
+        
     }
     
     
