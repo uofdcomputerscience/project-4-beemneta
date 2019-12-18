@@ -58,6 +58,13 @@ class computerDetailView: UIViewController {
         editedBrand.isHidden = true
         editedNet.isHidden = true
         doneEditingButton.isHidden = true
+        model.isHidden = false
+        department.isHidden = false
+        userName.isHidden = false
+        ipAddress.isHidden = false
+        model.isHidden = false
+        serialNumber.isHidden = false
+        brand.isHidden = false
         
         let newIP = editedIP?.text ?? ""
        let newUser = editedUser?.text ?? ""
@@ -92,6 +99,13 @@ class computerDetailView: UIViewController {
         editedBrand.isHidden = false
         editedNet.isHidden = false
         doneEditingButton.isHidden = false
+        model.isHidden = true
+        department.isHidden = true
+        userName.isHidden = true
+        ipAddress.isHidden = true
+        model.isHidden = true
+        serialNumber.isHidden = true
+        brand.isHidden = true
     }
     func toMainFeed() {
         let vc = storyboard?.instantiateViewController(identifier: "mainFeed") as? mainFeed
