@@ -32,13 +32,11 @@ class mainFeed: UIViewController{
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         computerTable.dataSource = self
         computerTable.delegate = self
         
         DispatchQueue.main.async {
-            self.accountUser.text = LoginView.accountUserName!
             self.loadData()
         }
         
@@ -59,7 +57,8 @@ class mainFeed: UIViewController{
             if let error = error {
                 print (error.localizedDescription)
             } else {                
-                   for document in snapshot!.documents {                    
+                   for document in snapshot!.documents {
+                    let diD = document.documentID
                     let dar = document.data()
                        let na1 = dar["Department"] as? String ?? ""
                        let na2 = dar["UserName"] as? String ?? ""
@@ -68,18 +67,17 @@ class mainFeed: UIViewController{
                        let na5 = dar["SerialNumber"] as? String ?? ""
                        let na6 = dar["Model"] as? String ?? ""
                        let na7 = dar["NetBiosName"] as? String ?? ""
-                    let comp = Computer(user: na2, netBiosName: na7, serialNumber: na5, deptName: na1, ipAddress: na4, deviceModel: na6, brandName: na3)
+                        
+                    let comp = Computer(user: na2, netBiosName: na7, serialNumber: na5, deptName: na1, ipAddress: na4, deviceModel: na6, brandName: na3,docuID: diD)
                         self.computerArray.append(comp)
                         DispatchQueue.main.async {
                             self.computerTable.reloadData()
+                            self.accountUser.text = LoginView.accountUserName!
                         }
                    }
                }
            }
     }
-    
-    
-   
 }
 
 extension mainFeed: UITableViewDataSource {
@@ -116,6 +114,7 @@ extension mainFeed: UITableViewDelegate {
         vc.netBio = comp.netBiosName
         vc.sn = comp.serialNumber
         vc.unam = comp.user
+        vc.docID = comp.docuID
         view?.window?.rootViewController = vc
         view?.window?.makeKeyAndVisible()
         

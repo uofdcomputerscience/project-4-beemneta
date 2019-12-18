@@ -23,6 +23,14 @@ class LoginView: UIViewController {
     @IBOutlet weak var loginButton: UIButton!    
     @IBOutlet weak var signupButton: UIButton!
     
+    
+    override func viewDidLoad() {
+        loginButton.layer.cornerRadius = 4
+        signupButton.layer.cornerRadius = 4
+    }
+    
+    
+    
     @IBAction func loginButton(_ sender: UIButton) {
         guard let paswrd = passwordTxtFld.text, !paswrd.isEmpty else { return }
         guard let email = emailTxtFld.text, !email.isEmpty else { return }        
@@ -58,10 +66,10 @@ class LoginView: UIViewController {
     }
     
      func toMainFeed() {
-        let vc = storyboard?.instantiateViewController(identifier: "mainFeed") as? mainFeed        
-        view.window?.rootViewController = vc
-        view.window?.makeKeyAndVisible()
-    }
+         let vc = storyboard?.instantiateViewController(identifier: "mainFeed") as? mainFeed
+         view.window?.rootViewController = vc
+         view.window?.makeKeyAndVisible()
+     }
 
     func loginUser (user:String, pass:String) {
         guard !user.isEmpty else { return }
@@ -77,11 +85,13 @@ class LoginView: UIViewController {
                     } else {
                            for document in snapshot!.documents {
                                          let dar = document.data()
-                            LoginView.accountUserName = dar["AccountUserName"] as! String
-                                        }
+                            LoginView.accountUserName = (dar["AccountUserName"] as! String)
+                            
+                        }
+                        self.toMainFeed()
                     }
                 })
-                self.toMainFeed()
+                
             }
         }
         

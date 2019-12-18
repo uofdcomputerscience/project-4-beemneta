@@ -29,6 +29,12 @@ class newComputer: UIViewController {
         userName.text = ""
     }
     
+    override func viewDidLoad() {
+        resetButton.layer.cornerRadius = 5
+        doneButton.layer.cornerRadius = 3
+    }
+    
+    
     @IBAction func goBack(_ sender: UIButton) {
         toMainFeed()
     }
@@ -48,7 +54,8 @@ class newComputer: UIViewController {
          guard let model = model.text, !model.isEmpty else { return }
         guard let dept = department.text, !dept.isEmpty else { return }
         
-        LoginView.db.collection(LoginView.userID).addDocument(data: ["UserName":usr,"NetBiosName":net,"Department":dept,"IPAddress":ipa,"SerialNumber":srn,"Brand":brand,"Model":model,"isComputer":true]) { (error) in
+      
+        LoginView.db.collection(LoginView.userID).addDocument(data: ["UserName":usr,"NetBiosName":net,"Department":dept,"IPAddress":ipa,"SerialNumber":srn,"Brand":brand,"Model":model,"isComputer":true,"documentID":LoginView.db.collection(LoginView.userID).document().documentID]) { (error) in
             if error != nil {
                 print (error!.localizedDescription)
             } else {

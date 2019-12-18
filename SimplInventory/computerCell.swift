@@ -9,11 +9,8 @@
 import UIKit
 
 class computerCell: UITableViewCell {
-
     @IBOutlet weak var computerName: UILabel!
-    
     @IBOutlet weak var computerUser: UILabel!
-    
     @IBOutlet weak var serialNumber: UILabel!
     @IBOutlet weak var brand: UILabel!
 }

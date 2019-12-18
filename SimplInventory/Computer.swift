@@ -16,6 +16,7 @@ struct Computer {
     var ipAddress: String
     var deviceModel: String
     var brandName: String
+    var docuID: String
     
     var dictionary:[String:Any] {
         return [
@@ -26,7 +27,8 @@ struct Computer {
             "NetBiosName":netBiosName,
             "SerialNumber":serialNumber,
             "UserName":user,
-            "isComputer":true
+            "isComputer":true,
+            "documentID":docuID
         ]
     }
 }
