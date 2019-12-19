@@ -65,7 +65,7 @@ class computerDetailView: UIViewController {
         serialNumber.isHidden = false
         brand.isHidden = false
         
-        let newIP = editedIP?.text ?? ""
+       let newIP = editedIP?.text ?? ""
        let newUser = editedUser?.text ?? ""
        let newNet = editedNet?.text ?? ""
        let newSN = editedSN?.text ?? ""
@@ -114,7 +114,6 @@ class computerDetailView: UIViewController {
     
     func replaceVal (value:String!,replacing:String ) -> String! {
         if value != "" {
-            print("value is now \(value!))")
             return value
         }else {
             return replacing
